@@ -20,9 +20,9 @@ public class LibraryController(LibraryService service) : ControllerBase
     // POST /CreateBook?title=...
     // Parametr title se bere z query stringu.
     [HttpPost(nameof(CreateBook))]
-    public void CreateBook(string title)
+    public void CreateBook(CreateBookRequestDto dto)
     {
-        service.CreateBook(title);
+        service.CreateBook(dto);
     }
 
     // PUT /UpdateBook - zatím neimplementováno (záměrně, jako cvičení).
@@ -38,9 +38,6 @@ public class LibraryController(LibraryService service) : ControllerBase
     {
         service.DeleteBook(bookId);
     }
-
-    [HttpPost(nameof(CreateBook))]
-    public void CreateBook(CreateBookRequestDto dto) => service.CreateBook(dto);
 
     [HttpDelete(nameof(DeleteAuthor))]
     public void DeleteAuthor(string authorId) => service.DeleteAuthor(authorId);
