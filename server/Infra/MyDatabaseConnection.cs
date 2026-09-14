@@ -13,4 +13,6 @@ public class MyDatabaseConnection(DataOptions<MyDatabaseConnection> options)
 {
     // Tabulka knih. Na tohle se pak píšou LINQ dotazy, např. dbConnection.Books.ToList().
     public ITable<Book> Books => this.GetTable<Book>();
+    
+    public ITable<Author> Authors => this.GetTable<Author>();
 }

@@ -1,5 +1,6 @@
 using Infra;
 using Microsoft.AspNetCore.Mvc;
+using Service;
 
 namespace API;
 
@@ -37,4 +38,10 @@ public class LibraryController(LibraryService service) : ControllerBase
     {
         service.DeleteBook(bookId);
     }
+
+    [HttpPost(nameof(CreateBook))]
+    public void CreateBook(CreateBookRequestDto dto) => service.CreateBook(dto);
+
+    [HttpDelete(nameof(DeleteAuthor))]
+    public void DeleteAuthor(string authorId) => service.DeleteAuthor(authorId);
 }

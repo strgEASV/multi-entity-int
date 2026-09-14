@@ -35,13 +35,21 @@ using (var scope = app.Services.CreateScope())
     // Vytvoří tabulku Book, jen pokud ještě neexistuje.
     connectionToDb.CreateTable<Book>(tableOptions:TableOptions.CreateIfNotExists);
 
+    connectionToDb.CreateTable<Author>(tableOptions: TableOptions.CreateIfNotExists);
+
+    if (connectionToDb.Authors.Count() == 0)
+    {
+        connectionToDb.Insert(new Author() { AuthorId = "1", AuthorName = "Bob" });
+    }
+
     // Seed dat: když je tabulka prázdná, vložíme jednu ukázkovou knihu.
     if (connectionToDb.Books.Count() == 0)
     {
         connectionToDb.Insert(new Book()
         {
             BookId = "1",
-            BookTitle = "Bobs book"
+            BookTitle = "Bobs book",
+            AuthorId = "1"
         });
     }
 }

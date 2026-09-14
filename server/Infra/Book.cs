@@ -12,4 +12,16 @@ public class Book
 
     // [Column] = obyčejný sloupec tabulky, sem se ukládá název knihy.
     [Column]public string BookTitle { get; set; }
+    
+    [Column]public string AuthorId { get; set; }
+    
+    [Association(ThisKey = nameof(AuthorId), OtherKey = nameof(Author.AuthorId))]
+    public Author Author { get; set; }
+}
+
+public class Author
+{
+    [PrimaryKey] public string AuthorId { get; set; }
+    [Column] public string AuthorName { get; set; }
+    
 }
