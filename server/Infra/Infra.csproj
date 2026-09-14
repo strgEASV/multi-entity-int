@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- Infra = nejnižší vrstva, nereferencuje nikoho dalšího.
+       linq2db = lehké ORM (LINQ dotazy -> SQL).
+       Microsoft.Data.Sqlite = samotný SQLite driver. -->
+  <ItemGroup>
+    <PackageReference Include="linq2db" Version="6.5.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.12" />
+  </ItemGroup>
+
+</Project>

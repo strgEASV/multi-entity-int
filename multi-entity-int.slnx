@@ -1,0 +1,9 @@
+<!-- .slnx = nový formát solution souboru (nahrazuje .sln).
+     Díky němu Rider/Visual Studio vidí všechny tři projekty pohromadě. -->
+<Solution>
+  <Folder Name="/server/">
+    <Project Path="server/API/API.csproj" />
+    <Project Path="server/Infra/Infra.csproj" />
+    <Project Path="server/Service/Service.csproj" />
+  </Folder>
+</Solution>
